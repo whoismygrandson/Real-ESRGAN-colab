@@ -27,6 +27,7 @@ run_cmd("pip install basicsr")
 run_cmd("pip freeze")
 
 os.system("wget https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.2.4/RealESRGAN_x4plus_anime_6B.pth -P .")
+os.system("wget https://pan.crnmsl.ml/api/v3/file/source/24521/up2x-latest-denoise2x.pth?sign=SHaFwzlfop18TG0aD5dSsKl_d-W4GAH9t-_2yIg0wBo%3D%3A0 -P .")
 
 
 def inference(img,mode):
@@ -45,7 +46,7 @@ def inference(img,mode):
     if mode == "base":
         run_cmd("python inference_realesrgan.py -n RealESRGAN_x4plus -i "+ INPUT_DIR + " -o " + OUTPUT_DIR)
     else:
-        os.system("python inference_realesrgan.py -n RealESRGAN_x4plus_anime_6B -i "+ INPUT_DIR + " -o " + OUTPUT_DIR)
+        os.system("python inference_realesrgan.py -n up2x-latest-denoise2x -i "+ INPUT_DIR + " -o " + OUTPUT_DIR)
     return os.path.join(OUTPUT_DIR, "1_out.jpg")
 
 
